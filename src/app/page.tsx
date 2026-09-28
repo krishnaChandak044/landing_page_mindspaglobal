@@ -1,69 +1,79 @@
-import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import { Zap } from "lucide-react";
+import Hero from "@/components/Hero";
+import WhyAttend from "@/components/WhyAttend";
+import SessionDetails from "@/components/SessionDetails";
+import ComparisonTable from "@/components/ComparisonTable";
+import HowItWorks from "@/components/HowItWorks";
+import Transformations from "@/components/Transformations";
+import VideoTestimonials from "@/components/VideoTestimonials";
+import WhoIsThisFor from "@/components/WhoIsThisFor";
+
+import ShortAboutCoach from "@/components/ShortAboutCoach";
+import AboutCoach from "@/components/AboutCoach";
+import Bonuses from "@/components/Bonuses";
+import WhatYouWillLearn from "@/components/WhatYouWillLearn";
+import Awards from "@/components/Awards";
+import Testimonials from "@/components/Testimonials";
+import OnlineSuccessGallery from "@/components/OnlineSuccessGallery";
+import FAQ from "@/components/FAQ";
+import FinalCTA from "@/components/FinalCTA";
+import Footer from "@/components/Footer";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
+import SocialProofToast from "@/components/SocialProofToast";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <ScrollProgressBar />
+      <SocialProofToast />
+
+      <Navbar />
+
+      <main id="main-content">
+        <Hero />
+        <OnlineSuccessGallery />
+        <WhyAttend />
+
+        <WhoIsThisFor />
+        <WhatYouWillLearn />
+        <ShortAboutCoach />
+
+        <div className="theme-dark">
+          <VideoTestimonials />
+          <Transformations />
+          <Testimonials />
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <HowItWorks />
+        <ComparisonTable />
+
+        <div style={{ background: '#f8fafc', padding: '2rem 0' }}>
+          <AboutCoach />
+          <Awards />
         </div>
+
+        <SessionDetails />
+        <Bonuses />
+        <FAQ />
+
+        <FinalCTA />
       </main>
-    </div>
+
+      <Footer />
+
+      {/* Sticky mobile CTA bar */}
+      <div className="sticky-cta hide-desktop" role="complementary" aria-label="Book session">
+        <a
+          href="#register"
+          id="sticky-mobile-cta"
+          className="btn btn-primary btn-pulse"
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontWeight: 800 }}
+        >
+          <Zap size={18} /> Book your 1 on 1 Mental Clarity Session Rs. 49
+        </a>
+      </div>
+    </>
   );
 }
